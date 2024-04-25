@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travis' Cat Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+	body {
+		margin: 0;
+		padding: .2em;
+		background-image: url('images/bg_image.jpg');
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		background-size: 100% 100%;
+		
+	}
+
+	@font-face {
+	  font-family: "CatPaw";
+	  font-style: normal;
+	  src: url(font/CatPaw.ttf);
+	  
+	}
+	
+	@font-face {
+	  font-family: "CFCrayons-Regular";
+	  font-style: normal;
+	  src: url(font/CFCrayons-Regular.ttf);
+	  
+	}
+	
+	
+	h1 { 		
+		color: #A5E900;
+		font-family: "CatPaw";
+		font-size: 3em;
+		font-weight: bold;
+		text-align: center;
+	
+	}
+	
+	h2 { 
+		color: black;
+		font-size: 1.6em;
+		margin-top: 1em;
+		font-weight: bold;
+		font-family: "CFCrayons-Regular";
+	}
+	
+	h3 { 
+		color: white;
+		font-size: 1.4em;
+		margin-top: 1em;
+		font-weight: bold;
+	}
+	
+	
+	p { 
+		color: black;
+	
+	}
+	
+	#pollResults p {
+		color: white;
+		font-weight: bold;
+	}
+	
+	
+	footer {
+		border-top: 2px solid #A5E900;
+		margin: 0 10% 0 10%;
+		color: white;	
+	}
+
+    .custom-navbar-brand {
+        border-radius: 10px; 
+        margin-right: 10px; 
+        background-color: #fff; 
+        padding: 5px 10px; 
+    }
+	
+	.custom-container-fluid {
+	   padding: 1em 1em;
+	}
+	
+	.text-center {
+	   padding: .3em 0em;
+	   color: white;
+	}
+	
+	.navbar {
+		border-bottom: 2px solid white;
+		font-family: "CFCrayons-Regular";
+		font-weight: bold;
+	}	
+
+	.nav-link:hover span {
+		background-color: #A5E900;    
+		color: black; 
+	 }
+
+   
+	.nav-item-content {
+	  border: 2px solid black;
+	  padding: .2em;
+	  font-weight: bold;
+	  color: black;
+	  
+	}	
+	
+	.nav-item a {
+	  box-shadow: inset 0 0 0 0 #A6E507;
+	  color: #A6E507;
+	  margin-left: 1rem;
+	  padding: 0 .25rem;
+	  transition: color .5s ease-in-out, box-shadow .5s ease-in-out;	
+	  padding: .2em;
+	  font-weight: bold;
+	  color: black;
+	}
+	
+	.nav-item a:hover {
+	  box-shadow: inset 300px 0 0 0 #A6E507;
+	  color: white;
+	}
+
+	.dropbtn {
+	  background-color: #FFC107; 
+	  padding: 0;
+	  font-size: 1.1em;
+	  border: none;
+	}
+
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	  
+	}
+
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #bada55;
+	  min-width: 300px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	  
+	}
+
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 20px;
+	  text-decoration: none;
+	  display: block;
+	  
+	}
+
+	.dropdown-content a:hover {}
+
+	.dropdown:hover .dropdown-content {display: block;}
+
+	.dropdown:hover .dropbtn {}
+	
+	.image {
+		text-align: center;
+	 
+	  }
+	  
+	.card-img-top {
+		border-radius: 50%; 
+		width: 125px; 
+		height: 125px; 
+		margin-top: 10px;
+	 }
+	 
+	.card-text{
+		font-size: 70%; 
+		text-align: center;
+		font-weight: bold;
+	 
+	 }
+	
+	
+</style>
+
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="dropdown navbar-brand custom-navbar-brand col-md-3" style="background-color: #FFC107; text-align: center; color: white; font-weight: bold">
+			<button class="dropbtn" style="font-weight: bold">Travis' Cat Blog</button>
+			 <div class="dropdown-content">
+				<a href="#post1" style="margin-bottom: 0; padding: 0.2em; border: 2px double black">Mona and Tenley Fighting</a>
+				<a href="#post2" style="margin-bottom: 0; padding: 0.2em; border: 2px double black">Traveling</a>
+				<a href="#post3" style="margin-bottom: 0; padding: 0.2em; border: 2px double black">Space Making Post</a>
+			 </div>
+		 </div>	 
+			<a class="navbar-brand custom-navbar-brand col-md-1" style="background-color: #8B008B; text-align: center; color: white" href="mona_cat.html">Mona</a>
+			<a class="navbar-brand custom-navbar-brand col-md-1"  style="background-color: #8B4513; text-align: center; color: white" href="tenley_cat.html">Tenley</a>
+			<a class="navbar-brand custom-navbar-brand col-md-1" style="background-color: #8B0000; text-align: center; color: white" href="maxwell_cat.html">Maxwell</a>
+		
+		<form class="d-flex justify-content-end offset-3" role="search">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success bg-warning" type="submit" style="font-family: arial; color: black">Search</button>
+		</form>
+    </nav>
+
+    <!-- Sidebar & Main Content -->
+    <div class="custom-container-fluid">
+        <div class="row">
+            <div class="col-md-3" style="border-right: 2px solid gray">
+                <!-- Sidebar: Form and Navigation -->
+                <h2 style="color: #FFC107; text-align: center"><b>Favourite Cat Poll</b></h2>
+                <form id="catPollForm">
+					<div class="form-group">
+						<label for="userName" style="color: #A5E900"><b>Your Name:</b></label>
+						<input type="text" class="form-control" id="userName" required>
+					</div>
+					<div class="form-group">
+						<label for="favouriteCat" style="color: #A5E900"><b>Favourite Cat:</b></label>
+						<select class="form-control" id="favouriteCat" required>
+							<option value="" disabled selected>Select your option</option>
+							<option value="Maxwell">Maxwell</option>
+							<option value="Tenley">Tenley</option>
+							<option value="Mona">Mona</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-warning">Submit</button>
+				</form>
+			
+                <div id="pollResults">
+                    <!-- Initial results will be shown here -->
+                </div>
+                <hr style="border: 2px double #A5E900"/>
+                <h2 style="color: #FFC107; text-align: center">Blog Posts</h2>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#post1"><span class="bg-warning" style="border: 2px solid black; padding: .2em; font-weight: bold; color: black">Mona and Tenley Fighting</span>  <span class="badge badge-info">New</span></a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#post2"><span class="bg-warning" style="border: 2px solid black; padding: .2em; font-weight: bold; color: black">Traveling </span></a>
+                    </li>
+					<li class="nav-item">
+                        <a class="nav-link" href="#post3"><span class="bg-warning" style="border: 2px solid black; padding: .2em; font-weight: bold; color: black">Space Making Post</span>  </a>
+                    </li>
+                </ul>
+            </div>
+			<div class="col-md-9" style="height: 76vh; overflow-y: auto; scrollbar-color: #997F00 #bada55;">
+                <h1>Welcome to Travis' Cat Blog</h1>				
+				<div class="image">
+					  <a class="btn btn-primary" data-toggle="collapse" href="#collapseMona" role="button" aria-expanded="false" aria-controls="collapseMona" style="background-color: #8B008B;"><img src="images/Mona/mona1.jpg" class="card-img-top" alt="Mona"><br/><b>Mona</b></a>
+					  <a class="btn btn-primary" data-toggle="collapse" href="#collapseTenley" role="button" aria-expanded="false" aria-controls="collapseTenley" style="background-color: #8B4513;"><img src="images/Tenley/tenley1.jpg" class="card-img-top" alt="Tenley"><br/><b>Tenley</b></a>					
+					  <a class="btn btn-primary" data-toggle="collapse" href="#collapseMaxwell" role="button" aria-expanded="false" aria-controls="collapseMaxwell" style="background-color: #8B0000;"><img src="images/Maxwell/maxwell4.jpg" class="card-img-top" alt="Maxwell"><br/><b>Maxwell</b></a>
+				</div>
+				<div class="collapse" id="collapseMona">
+				  <div class="card card-body">
+					Choose me, please. My name is Mona, Travis finds me as shy and very talkative but for me I'am the sweetest.. meow!
+				  </div>
+				</div>
+				<div class="collapse" id="collapseTenley">
+				  <div class="card card-body">
+					Choose for me, please. My name is Tenley, and I'm Travis's newly adopted cat. I adore cuddling and being petted.. meow!
+				  </div>
+				</div>
+				<div class="collapse" id="collapseMaxwell">
+				  <div class="card card-body">
+					Vote for me, please. My name is Maxwell, Travis' first cat. Unfortunately, I had to say goodbye earlier as I was unwell, which made me quite sensitive and clingy. meow!
+				  </div>
+				</div>
+                <article id="post1">
+                     <h3>Mona and Tenley Fighting <span class="badge badge-info">New</span></h3>
+					<span class="badge badge-warning">Short</span>
+					<span class="badge badge-warning">Mona</span>
+					<span class="badge badge-warning">Tenley</span>
+					<span class="badge badge-warning">English</span>
+					<p style="font-weight: bold; color: white">Gosh, they sure do love to fight a lot – their personalities just clash. Mona is so anxious and shy all the time, and Tenley is young and rambunctious and loves to play, so they just don’t get along sometimes! I’ve tried many things to help, but the best thing to do is to have my partner and I play with each of them separately and give them lots of cuddles – that does the trick!</p>
+                </article>
+				<article id="post2">
+                     <h3>Traveling </h3>
+					<span class="badge badge-warning">Short</span>
+					<span class="badge badge-warning">Tenley</span>
+					<span class="badge badge-warning">English</span>
+					<p style="font-weight: bold; color: white">Dangit, I have to go to New Orleans for a conference which means leaving my poor little kitties behind! I can’t imagine they would enjoy such a trip… Tenley is terrified of leaving the house. Every time I put her on a little harness to go for a walk, she panics and runs back inside. What a strange cat!</p>
+				</article>
+                <article id="post3">
+                     <h3>Space Making Post </h3>
+					<span class="badge badge-warning">Long</span>
+					<span class="badge badge-warning">Maxwell</span>
+					<span class="badge badge-warning">Latin</span>
+					<p style="font-weight: bold; color: white">This is just to test your layout. It’s a bunch of lorem ipsum, which Maxwell spoke fluently.</p>
+					<p style="font-weight: bold; color: white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc egestas lobortis arcu, nec mattis diam consectetur at. Quisque nec leo id leo aliquet finibus. Praesent ut risus mattis libero condimentum dictum imperdiet eget nibh. Donec elit erat, finibus vel rhoncus in, tincidunt ac lorem. Phasellus vestibulum ipsum et lorem gravida, commodo accumsan magna posuere. Proin sodales egestas pellentesque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam a nibh at est condimentum porttitor ut quis est. Donec accumsan lobortis purus, eget rhoncus tellus varius lacinia. Suspendisse potenti. Sed mollis egestas tempus. Duis a lectus libero. Nam sed est turpis. Nunc justo arcu, feugiat quis elit eu, cursus euismod mi. Curabitur rutrum nisl libero, in elementum neque volutpat euismod. Mauris semper sollicitudin purus nec tempus.</p>
+					<p style="font-weight: bold; color: white">Ut mattis nulla sem, ac tristique est aliquam et. Maecenas lorem velit, ornare quis aliquam sed, viverra vitae diam. Duis et sem mi. Praesent pretium nisi interdum, ullamcorper nisl non, pharetra orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ullamcorper sit amet quam ac tincidunt. Proin eget faucibus nisi. Donec finibus facilisis felis non consectetur. Aliquam quis volutpat tellus, vitae condimentum urna. Praesent vitae augue fringilla, pretium eros vel, ultrices lectus.</p>
+					<p style="font-weight: bold; color: white">Nunc eleifend mauris quam, sed vulputate ante semper vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur varius ex et ante viverra, vel fringilla quam luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis libero non purus hendrerit tempor. Nullam libero ante, dictum et eros nec, iaculis tempus dolor. Praesent sit amet mollis velit. Suspendisse aliquet convallis sapien, ut pretium magna iaculis vitae. Donec lobortis nibh et lorem pellentesque luctus.</p>
+					<p style="font-weight: bold; color: white">Duis et augue laoreet, pellentesque metus in, bibendum nulla. Fusce ut ante leo. Sed ullamcorper felis at eros facilisis, nec dignissim eros lobortis. Pellentesque nec luctus lorem, sit amet facilisis sapien. Vivamus et massa tempor, mollis risus sit amet, elementum ipsum. Aliquam massa quam, maximus vitae congue ac, pretium a sapien. Nullam faucibus neque a libero feugiat pharetra. In quis turpis eu metus pharetra volutpat. Mauris nisi felis, hendrerit sit amet erat at, interdum lobortis nisi. Maecenas at nulla at eros varius vehicula. Mauris mollis sem orci, vel fermentum dui aliquet a. Etiam tristique sit amet velit eget iaculis. In ultrices volutpat dignissim. In mollis eros at ipsum convallis tempor. Fusce at orci ac mi elementum sollicitudin.</p>
+					
+				</article>						
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container-fluid">
+            <p style="margin: .3em; font-family: courier; color: white;">Page made by Jennifer Pañares. Images supplied by Travis Cattington.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and necessary plugins -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('catPollForm');
+        var resultsElement = document.getElementById('pollResults');
+
+        // Function to update the poll results
+        function updatePollResults(favouriteCat) {
+            pollResults[favouriteCat] += 1; 
+            resultsElement.innerHTML = ''; 
+
+            // Display updated poll results
+            Object.keys(pollResults).forEach(function(cat) {
+                var votes = pollResults[cat];
+                var p = document.createElement('p');
+                p.textContent = cat + ': ' + votes + ' votes';
+                resultsElement.appendChild(p);
+            });
+        }
+
+        // Function to display initial poll results
+        function displayInitialPollResults() {
+            Object.keys(pollResults).forEach(function(cat) {
+                var votes = pollResults[cat];
+                var p = document.createElement('p');
+                p.textContent = cat + ': ' + votes + ' votes';
+                resultsElement.appendChild(p);
+            });
+        }
+
+        // For the form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var userName = document.getElementById('userName').value;
+            var favouriteCat = document.getElementById('favouriteCat').value;
+
+            // Hide the form
+            form.style.display = 'none';
+
+            // Update and display the results
+            updatePollResults(favouriteCat);
+			
+			// Show a message to the user
+            var userMessage = document.createElement('p');
+            userMessage.textContent = "Here is the Poll Results";
+            resultsElement.prepend(userMessage); 
+			
+            // Show a message to the user
+            var userMessage = document.createElement('p');
+            userMessage.textContent = "Your favorite cat is " + favouriteCat + ", " + userName + ".";
+            resultsElement.prepend(userMessage); 
+			
+			
+        });
+
+        // Initial poll results
+        var pollResults = {'Maxwell': 7, 'Tenley': 6, 'Mona': 4};
+
+       
+    });
+	</script>
+
+
+</body>
+</html>
